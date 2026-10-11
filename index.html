@@ -13,14 +13,10 @@
   <!-- 02. FONTS AND ICONS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- 03. WEBSITE DESIGN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <!-- 03. DESIGN AND STYLING -->
   <style>
     :root {
       --gold: #d6b46a;
@@ -50,8 +46,12 @@
       text-decoration: none;
     }
 
-    button {
+    button, textarea {
       font-family: inherit;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .serif {
@@ -69,11 +69,17 @@
       color: transparent;
     }
 
+    .container-custom {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(17,16,13,.95);
+      background: rgba(17,16,13,.96);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -81,7 +87,7 @@
     .brand-title {
       font-family: 'Cinzel', serif;
       letter-spacing: 2px;
-      font-size: clamp(20px, 4vw, 31px);
+      font-size: clamp(21px, 4vw, 31px);
       font-weight: 700;
       line-height: 1.3;
     }
@@ -95,11 +101,6 @@
 
     .section {
       padding: 65px 20px;
-    }
-
-    .container-custom {
-      max-width: 1100px;
-      margin: 0 auto;
     }
 
     .section-heading {
@@ -125,21 +126,16 @@
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
-    .legacy-card,
-    .collection-card,
-    .review-card {
-      background: linear-gradient(145deg, #242119, #171611);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      overflow: hidden;
-    }
-
+    /* 04. LEGACY CARD */
     .legacy-card {
       display: grid;
       grid-template-columns: 1fr 1.25fr;
       gap: 30px;
       padding: 24px;
       align-items: center;
+      background: linear-gradient(145deg, #242119, #171611);
+      border: 1px solid var(--border);
+      border-radius: 17px;
     }
 
     .legacy-image {
@@ -170,6 +166,7 @@
       color: var(--muted);
     }
 
+    /* 05. QUICK ACTION BUTTONS */
     .action-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -206,6 +203,7 @@
       transform: translateY(-3px);
     }
 
+    /* 06. COLLECTION CARDS */
     .collection-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -215,6 +213,9 @@
     .collection-card {
       padding: 26px 22px;
       transition: .25s ease;
+      background: linear-gradient(145deg, #242119, #171611);
+      border: 1px solid var(--border);
+      border-radius: 17px;
     }
 
     .collection-card:hover {
@@ -246,7 +247,7 @@
       margin: 0;
     }
 
-    /* 04. REVIEW SECTION */
+    /* 07. REVIEW SECTION */
     .review-notice {
       max-width: 760px;
       margin: 0 auto 25px;
@@ -269,6 +270,9 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      background: linear-gradient(145deg, #242119, #171611);
+      border: 1px solid var(--border);
+      border-radius: 17px;
       transition: .2s ease;
     }
 
@@ -295,7 +299,7 @@
     .stars {
       color: #f6c85f;
       font-size: 14px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       white-space: nowrap;
     }
 
@@ -308,7 +312,7 @@
 
     .select-review {
       width: 100%;
-      padding: 10px;
+      padding: 11px;
       border: 1px solid var(--border);
       background: transparent;
       color: var(--gold-light);
@@ -325,6 +329,7 @@
       color: #17130a;
     }
 
+    /* 08. REVIEW EDITOR */
     .review-editor {
       max-width: 760px;
       margin: 25px auto 0;
@@ -352,7 +357,6 @@
       resize: vertical;
       background: #11100d;
       color: var(--text);
-      font-family: 'Poppins', sans-serif;
       font-size: 13px;
       line-height: 1.8;
     }
@@ -415,7 +419,7 @@
       min-height: 18px;
     }
 
-    /* 05. ADDRESS AND FOOTER */
+    /* 09. STORE LOCATION */
     .location-box {
       max-width: 760px;
       margin: 0 auto;
@@ -438,27 +442,7 @@
       margin: 12px 0 20px;
     }
 
-    footer {
-      padding: 32px 20px;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      background: #0c0b09;
-    }
-
-    footer p {
-      margin: 7px 0;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer-brand {
-      font-family: 'Cinzel', serif;
-      color: var(--gold);
-      letter-spacing: 2px;
-      font-size: 18px;
-    }
-
-    /* 06. POPUP WINDOWS */
+    /* 10. CONTACT POPUPS */
     .modal {
       display: none;
       position: fixed;
@@ -523,7 +507,28 @@
       background: #30291b;
     }
 
-    /* 07. MOBILE RESPONSIVE DESIGN */
+    /* 11. FOOTER */
+    footer {
+      padding: 32px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: #0c0b09;
+    }
+
+    footer p {
+      margin: 7px 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 18px;
+    }
+
+    /* 12. MOBILE RESPONSIVE DESIGN */
     @media (max-width: 700px) {
       .section {
         padding: 45px 15px;
@@ -584,20 +589,24 @@
 
 <body>
 
-  <!-- 08. BRAND HEADER -->
+  <!-- 13. BRAND HEADER -->
   <header class="site-header">
-    <div class="container-custom px-5 py-4 text-center">
+    <div class="container-custom" style="padding:16px 20px;text-align:center;">
       <a href="#home" aria-label="Shree Alankar Dresses and Studio home">
         <div class="brand-title gold-gradient">SHREE ALANKAR</div>
-        <div class="serif text-sm tracking-widest mt-1">DRESSES &amp; STUDIO</div>
-        <div class="brand-subtitle mt-2">Tradition • Culture • Celebration</div>
+        <div class="serif" style="font-size:13px;letter-spacing:3px;margin-top:4px;">
+          DRESSES &amp; STUDIO
+        </div>
+        <div class="brand-subtitle" style="margin-top:8px;">
+          Tradition • Culture • Celebration
+        </div>
       </a>
     </div>
   </header>
 
   <main id="home">
 
-    <!-- 09. LEGACY AND INTRODUCTION -->
+    <!-- 14. INTRODUCTION AND LEGACY -->
     <section class="section">
       <div class="container-custom">
 
@@ -622,25 +631,25 @@
 
             <div class="gold-line" style="margin-left:0;"></div>
 
-            <p class="muted text-sm mb-4">
+            <p class="muted" style="font-size:14px;margin-bottom:16px;">
               Welcome to Shree Alankar Dresses &amp; Studio, where tradition
               meets celebration. Explore outfits inspired by Indian culture,
               colourful festivities and timeless ethnic styles.
             </p>
 
-            <p class="muted text-sm">
+            <p class="muted" style="font-size:14px;">
               From traditional Rajasthani poshak to dance, drama and fancy
               dress costumes, discover outfits for special moments and
               memorable occasions.
             </p>
 
-            <p class="gold text-xs mt-5 tracking-widest">
+            <p class="gold" style="font-size:12px;margin-top:20px;letter-spacing:2px;">
               JODHPUR, RAJASTHAN
             </p>
           </div>
         </div>
 
-        <!-- 10. QUICK ACTION BUTTONS -->
+        <!-- 15. ACTION BUTTONS -->
         <div class="action-grid">
 
           <button class="action-button" onclick="openModal('whatsappModal')">
@@ -697,7 +706,7 @@
       </div>
     </section>
 
-    <!-- 11. COLLECTIONS -->
+    <!-- 16. COLLECTIONS -->
     <section class="section" style="background:#15140f;">
       <div class="container-custom">
 
@@ -762,210 +771,200 @@
       </div>
     </section>
 
-    <!-- 12. GOOGLE REVIEW SUGGESTIONS -->
+    <!-- 17. GOOGLE REVIEW SECTION -->
     <section class="section" id="reviews">
       <div class="container-custom">
 
         <h2 class="section-heading">
-          Share Your <span class="gold-gradient">Experience</span>
+          Share Your <span class="gold-gradient">Experience ✨</span>
         </h2>
 
         <div class="gold-line"></div>
 
         <p class="section-description">
-          Had a good experience with us? Choose a review suggestion,
-          personalise it in your own words, and share your feedback on Google.
+          Had an experience with us? 😊 Choose a suggestion that matches
+          your visit, personalise it, and share your honest feedback on Google.
         </p>
 
         <div class="review-notice">
-          <i class="fa-solid fa-circle-info gold mr-2"></i>
-          Choose only a suggestion that reflects your actual experience.
-          You can edit the text before continuing to Google. The stars below
-          are examples, not a Google rating selector.
+          <i class="fa-solid fa-circle-info gold"></i>
+          Select a suggestion that reflects your actual experience.
+          Edit the text in your own words before sharing it on Google.
+          The stars displayed here are examples, not a Google rating selector.
         </div>
 
-        <!-- 13. TEN REVIEW CARDS -->
+        <!-- 18. TEN NATURAL REVIEW SUGGESTIONS -->
         <div class="review-grid" id="reviewGrid">
 
-          <!-- Review 01 -->
           <article class="review-card" data-review="1">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 01</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 😊</span>
+              <span class="review-number">REVIEW 01</span>
+              <span class="stars">★★★★★ 😊</span>
             </div>
             <p class="review-text">
               Had a really nice experience at Shree Alankar Dresses &amp; Studio.
-              The collection is beautiful, and the traditional outfits are
-              lovely. Definitely worth visiting! ✨
+              The traditional collection is beautiful, and there are lovely
+              options to explore. Definitely worth a visit! ✨❤️
             </p>
             <button class="select-review" onclick="selectReview(1)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 02 -->
           <article class="review-card" data-review="2">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 02</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ ❤️</span>
+              <span class="review-number">REVIEW 02</span>
+              <span class="stars">★★★★★ 👗</span>
             </div>
             <p class="review-text">
-              Beautiful dresses and a wonderful collection! Loved the
-              traditional designs and overall experience. Would recommend
-              this place to anyone looking for ethnic wear. 👗😊
+              Loved the variety of traditional outfits here! 😍 A nice place
+              to explore ethnic wear for different occasions. The collection
+              has a beautiful traditional touch. ❤️✨
             </p>
             <button class="select-review" onclick="selectReview(2)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 03 -->
           <article class="review-card" data-review="3">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 03</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 🙌</span>
+              <span class="review-number">REVIEW 03</span>
+              <span class="stars">★★★★★ 🌸</span>
             </div>
             <p class="review-text">
-              A great place for traditional Rajasthani dresses and fancy
-              costumes. The collection has so many lovely options. Happy
-              with my experience! 🌸✨
+              If you're looking for traditional Rajasthani dresses or fancy
+              costumes in Jodhpur, this place is worth checking out.
+              So many styles to explore! 😊🙌
             </p>
             <button class="select-review" onclick="selectReview(3)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 04 -->
           <article class="review-card" data-review="4">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 04</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 😍</span>
+              <span class="review-number">REVIEW 04</span>
+              <span class="stars">★★★★★ ✨</span>
             </div>
             <p class="review-text">
-              Such a beautiful collection of traditional outfits! The designs
-              are really attractive, and there are options for different
-              occasions. Loved it! ❤️👗
+              Beautiful traditional designs and a lovely collection.
+              Found some really attractive outfit options for special
+              occasions. Loved the overall experience! 🥰❤️
             </p>
             <button class="select-review" onclick="selectReview(4)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 05 -->
           <article class="review-card" data-review="5">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 05</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 🎉</span>
+              <span class="review-number">REVIEW 05</span>
+              <span class="stars">★★★★★ 🎉</span>
             </div>
             <p class="review-text">
-              Visited for an outfit for a special occasion and found some
-              lovely options. The traditional collection is worth checking
-              out. 😊✨
+              A nice place to explore outfits for festivals, functions
+              and celebrations. The traditional collection has plenty
+              of interesting options. 😊🌟
             </p>
             <button class="select-review" onclick="selectReview(5)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 06 -->
           <article class="review-card" data-review="6">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 06</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 🌟</span>
+              <span class="review-number">REVIEW 06</span>
+              <span class="stars">★★★★★ 💖</span>
             </div>
             <p class="review-text">
-              One of the places to explore if you're looking for traditional
-              dresses and cultural costumes in Jodhpur. Loved the variety!
-              🙌❤️
+              Really liked the traditional vibe of this place! ❤️
+              A good option for people looking for ethnic outfits and
+              cultural costumes. Worth exploring! 👗✨
             </p>
             <button class="select-review" onclick="selectReview(6)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 07 -->
           <article class="review-card" data-review="7">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 07</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 👌</span>
+              <span class="review-number">REVIEW 07</span>
+              <span class="stars">★★★★★ 🙌</span>
             </div>
             <p class="review-text">
-              Nice collection of ethnic wear and fancy dresses. A good option
-              for festivals, functions, and cultural events. Definitely worth
-              a visit! 🎊😊
+              Found some lovely options for cultural events and
+              traditional occasions. The collection is colourful and
+              has its own charm. 😊🌸
             </p>
             <button class="select-review" onclick="selectReview(7)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 08 -->
           <article class="review-card" data-review="8">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 08</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 💖</span>
+              <span class="review-number">REVIEW 08</span>
+              <span class="stars">★★★★★ 😍</span>
             </div>
             <p class="review-text">
-              Loved the traditional vibe and beautiful outfit designs here.
-              There are plenty of options to explore for different occasions.
-              👗🌸
+              Loved the outfit designs and the variety available.
+              A nice place to look for traditional dresses and
+              special-occasion outfits. 👗❤️
             </p>
             <button class="select-review" onclick="selectReview(8)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 09 -->
           <article class="review-card" data-review="9">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 09</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 🥰</span>
+              <span class="review-number">REVIEW 09</span>
+              <span class="stars">★★★★★ 🥰</span>
             </div>
             <p class="review-text">
-              A lovely place for traditional Rajasthani outfits and cultural
-              dresses. The collection has a unique charm. Would love to visit
-              again! ✨❤️
+              A lovely place for traditional Rajasthani outfits.
+              The designs have a beautiful cultural feel, and there
+              are different styles to explore. ✨😊
             </p>
             <button class="select-review" onclick="selectReview(9)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
-          <!-- Review 10 -->
           <article class="review-card" data-review="10">
             <div class="review-top">
-              <span class="review-number">SUGGESTION 10</span>
-              <span class="stars" aria-label="Example five stars">★★★★★ 🎭</span>
+              <span class="review-number">REVIEW 10</span>
+              <span class="stars">★★★★★ 🎭</span>
             </div>
             <p class="review-text">
-              Great place to look for fancy costumes, dance outfits, and
-              traditional dresses. Lots of options for events and
-              performances. 😊🎉
+              A useful place to explore fancy dress costumes, dance
+              outfits and traditional clothing for events.
+              Lots of styles to check out! 🎉😊
             </p>
             <button class="select-review" onclick="selectReview(10)">
-              Choose This Suggestion
+              Choose This Review
             </button>
           </article>
 
         </div>
 
-        <!-- 14. REVIEW EDITOR AND ACTION BUTTONS -->
+        <!-- 19. REVIEW EDITOR -->
         <div class="review-editor">
 
           <label for="reviewText">
-            <i class="fa-solid fa-pen-to-square mr-2"></i>
-            Your Review — Edit Before Sharing
+            <i class="fa-solid fa-pen-to-square"></i>
+            Your Review ✍️
           </label>
 
           <textarea
             id="reviewText"
             maxlength="1200"
-            placeholder="Select one of the 10 suggestions above. You can then edit it to describe your own experience..."
+            placeholder="Choose one of the 10 suggestions above..."
           ></textarea>
 
           <p class="editor-help">
-            Please make sure your review is genuine and accurate.
-            You can edit it in your own words before submitting it.
+            Edit the suggestion so it honestly reflects your experience.
+            Copy it and continue to Google Reviews to submit it yourself.
           </p>
 
           <div class="review-actions">
@@ -991,13 +990,18 @@
 
           </div>
 
-          <p class="status-message" id="reviewStatus" role="status" aria-live="polite"></p>
+          <p
+            class="status-message"
+            id="reviewStatus"
+            role="status"
+            aria-live="polite"
+          ></p>
 
         </div>
       </div>
     </section>
 
-    <!-- 15. STORE LOCATION -->
+    <!-- 20. STORE LOCATION -->
     <section class="section" style="background:#15140f;">
       <div class="container-custom">
 
@@ -1012,7 +1016,9 @@
             <i class="fa-solid fa-location-dot"></i>
           </div>
 
-          <h3 class="serif text-xl">Shree Alankar Dresses &amp; Studio</h3>
+          <h3 class="serif" style="font-size:20px;">
+            Shree Alankar Dresses &amp; Studio
+          </h3>
 
           <p class="location-address">
             Inside Jalori Gate, Backside of Bhati Softy,<br>
@@ -1030,12 +1036,13 @@
             Open Google Maps
           </a>
         </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- 16. WHATSAPP CONTACT POPUP -->
+  <!-- 21. WHATSAPP POPUP -->
   <div
     class="modal"
     id="whatsappModal"
@@ -1053,7 +1060,8 @@
       >&times;</button>
 
       <h3 id="whatsappTitle">Contact Us</h3>
-      <p class="muted text-xs mb-5">
+
+      <p class="muted" style="font-size:12px;margin-bottom:20px;">
         Choose a contact to start a WhatsApp conversation.
       </p>
 
@@ -1063,7 +1071,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fa-brands fa-whatsapp text-xl"></i>
+        <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i>
         <span>
           <strong>Store Contact</strong><br>
           +91 77918 89505
@@ -1076,7 +1084,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fa-brands fa-whatsapp text-xl"></i>
+        <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i>
         <span>
           <strong>Manager</strong><br>
           +91 94147 20970
@@ -1089,7 +1097,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fa-brands fa-whatsapp text-xl"></i>
+        <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i>
         <span>
           <strong>Studio Contact</strong><br>
           +91 91193 38157
@@ -1099,7 +1107,7 @@
     </div>
   </div>
 
-  <!-- 17. DIRECT CALL POPUP -->
+  <!-- 22. DIRECT CALL POPUP -->
   <div
     class="modal"
     id="callModal"
@@ -1117,12 +1125,13 @@
       >&times;</button>
 
       <h3 id="callTitle">Call the Store</h3>
-      <p class="muted text-xs mb-5">
+
+      <p class="muted" style="font-size:12px;margin-bottom:20px;">
         Choose a number to call.
       </p>
 
       <a class="contact-link" href="tel:+917791889505">
-        <i class="fa-solid fa-phone text-lg"></i>
+        <i class="fa-solid fa-phone" style="font-size:20px;"></i>
         <span>
           <strong>Store Contact</strong><br>
           +91 77918 89505
@@ -1130,7 +1139,7 @@
       </a>
 
       <a class="contact-link" href="tel:+919414720970">
-        <i class="fa-solid fa-phone text-lg"></i>
+        <i class="fa-solid fa-phone" style="font-size:20px;"></i>
         <span>
           <strong>Manager</strong><br>
           +91 94147 20970
@@ -1138,7 +1147,7 @@
       </a>
 
       <a class="contact-link" href="tel:+919119338157">
-        <i class="fa-solid fa-phone text-lg"></i>
+        <i class="fa-solid fa-phone" style="font-size:20px;"></i>
         <span>
           <strong>Studio Contact</strong><br>
           +91 91193 38157
@@ -1148,10 +1157,10 @@
     </div>
   </div>
 
-  <!-- 18. FOOTER -->
+  <!-- 23. FOOTER -->
   <footer>
     <div class="footer-brand">SHREE ALANKAR</div>
-    <p class="serif tracking-widest">DRESSES &amp; STUDIO</p>
+    <p class="serif" style="letter-spacing:3px;">DRESSES &amp; STUDIO</p>
     <p>Tradition • Culture • Celebration</p>
     <p>Jodhpur, Rajasthan, India</p>
     <p style="margin-top:18px;">
@@ -1160,45 +1169,38 @@
     </p>
   </footer>
 
-  <!-- 19. WEBSITE FUNCTIONALITY -->
+  <!-- 24. JAVASCRIPT -->
   <script>
-    /*
-      IMPORTANT:
-      Before publishing, verify the store's official Google Business Profile
-      review link and replace GOOGLE_REVIEW_URL below with the direct review
-      link if available.
-
-      The current Maps link opens the supplied Google Maps listing link.
-      It may not open the direct review composer.
-    */
-
+    // 24.1 GOOGLE REVIEW LINK
+    // Replace this with the direct Google Business Profile review link
+    // if you have it. The current link opens the supplied Maps listing.
     const GOOGLE_REVIEW_URL =
       "https://maps.app.goo.gl/WEnWz1hWL1SfNmwE8";
 
-    // 19.1 Review suggestion text
+    // 24.2 ALL TEN REVIEW SUGGESTIONS
     const reviewSuggestions = {
-      1: "Had a really nice experience at Shree Alankar Dresses & Studio. The collection is beautiful, and the traditional outfits are lovely. Definitely worth visiting! ✨",
+      1: "Had a really nice experience at Shree Alankar Dresses & Studio. The traditional collection is beautiful, and there are lovely options to explore. Definitely worth a visit! ✨❤️",
 
-      2: "Beautiful dresses and a wonderful collection! Loved the traditional designs and overall experience. Would recommend this place to anyone looking for ethnic wear. 👗😊",
+      2: "Loved the variety of traditional outfits here! 😍 A nice place to explore ethnic wear for different occasions. The collection has a beautiful traditional touch. ❤️✨",
 
-      3: "A great place for traditional Rajasthani dresses and fancy costumes. The collection has so many lovely options. Happy with my experience! 🌸✨",
+      3: "If you're looking for traditional Rajasthani dresses or fancy costumes in Jodhpur, this place is worth checking out. So many styles to explore! 😊🙌",
 
-      4: "Such a beautiful collection of traditional outfits! The designs are really attractive, and there are options for different occasions. Loved it! ❤️👗",
+      4: "Beautiful traditional designs and a lovely collection. Found some really attractive outfit options for special occasions. Loved the overall experience! 🥰❤️",
 
-      5: "Visited for an outfit for a special occasion and found some lovely options. The traditional collection is worth checking out. 😊✨",
+      5: "A nice place to explore outfits for festivals, functions and celebrations. The traditional collection has plenty of interesting options. 😊🌟",
 
-      6: "One of the places to explore if you're looking for traditional dresses and cultural costumes in Jodhpur. Loved the variety! 🙌❤️",
+      6: "Really liked the traditional vibe of this place! ❤️ A good option for people looking for ethnic outfits and cultural costumes. Worth exploring! 👗✨",
 
-      7: "Nice collection of ethnic wear and fancy dresses. A good option for festivals, functions, and cultural events. Definitely worth a visit! 🎊😊",
+      7: "Found some lovely options for cultural events and traditional occasions. The collection is colourful and has its own charm. 😊🌸",
 
-      8: "Loved the traditional vibe and beautiful outfit designs here. There are plenty of options to explore for different occasions. 👗🌸",
+      8: "Loved the outfit designs and the variety available. A nice place to look for traditional dresses and special-occasion outfits. 👗❤️",
 
-      9: "A lovely place for traditional Rajasthani outfits and cultural dresses. The collection has a unique charm. Would love to visit again! ✨❤️",
+      9: "A lovely place for traditional Rajasthani outfits. The designs have a beautiful cultural feel, and there are different styles to explore. ✨😊",
 
-      10: "Great place to look for fancy costumes, dance outfits, and traditional dresses. Lots of options for events and performances. 😊🎉"
+      10: "A useful place to explore fancy dress costumes, dance outfits and traditional clothing for events. Lots of styles to check out! 🎉😊"
     };
 
-    // 19.2 Select review and populate editor
+    // 24.3 SELECT A REVIEW
     function selectReview(number) {
       const textArea = document.getElementById("reviewText");
       const status = document.getElementById("reviewStatus");
@@ -1229,7 +1231,7 @@
       textArea.focus();
     }
 
-    // 19.3 Copy review text
+    // 24.4 COPY REVIEW TEXT
     async function copyReview() {
       const textArea = document.getElementById("reviewText");
       const status = document.getElementById("reviewStatus");
@@ -1256,7 +1258,7 @@
       }
     }
 
-    // 19.4 Open Google Maps / review listing
+    // 24.5 CONTINUE TO GOOGLE REVIEWS
     function continueToGoogle() {
       const textArea = document.getElementById("reviewText");
       const status = document.getElementById("reviewStatus");
@@ -1267,7 +1269,7 @@
       }
 
       status.textContent =
-        "Google is opening. If needed, copy your edited text and paste it into the review box.";
+        "Google is opening. Copy your edited text and paste it into the review box if needed.";
 
       window.open(
         GOOGLE_REVIEW_URL,
@@ -1276,7 +1278,7 @@
       );
     }
 
-    // 19.5 Open and close contact popups
+    // 24.6 OPEN CONTACT POPUP
     function openModal(id) {
       const modal = document.getElementById(id);
 
@@ -1286,6 +1288,7 @@
       }
     }
 
+    // 24.7 CLOSE CONTACT POPUP
     function closeModal(id) {
       const modal = document.getElementById(id);
 
@@ -1293,20 +1296,19 @@
         modal.classList.remove("show");
       }
 
-      const anyOpen = document.querySelector(".modal.show");
-
-      if (!anyOpen) {
+      if (!document.querySelector(".modal.show")) {
         document.body.style.overflow = "";
       }
     }
 
+    // 24.8 CLOSE POPUP WHEN CLICKING OUTSIDE
     function closeModalOnBackdrop(event, id) {
       if (event.target.id === id) {
         closeModal(id);
       }
     }
 
-    // 19.6 Close popups with Escape key
+    // 24.9 CLOSE POPUPS WITH ESCAPE KEY
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
         document.querySelectorAll(".modal.show").forEach(modal => {
@@ -1315,7 +1317,7 @@
       }
     });
 
-    // 19.7 Download contact as a vCard
+    // 24.10 DOWNLOAD STORE CONTACT
     function downloadVCard() {
       const vCard = [
         "BEGIN:VCARD",
@@ -1346,7 +1348,7 @@
       URL.revokeObjectURL(url);
     }
 
-    // 19.8 Current year in footer
+    // 24.11 AUTOMATIC FOOTER YEAR
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
   </script>
