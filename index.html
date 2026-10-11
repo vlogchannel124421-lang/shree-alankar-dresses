@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Alankar Dresses and Studio | Jodhpur (Since 1969)</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter & Rozha One for Rajasthani Royal Aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Rozha One', 'serif'],
+                    },
+                    colors: {
+                        royalGold: '#EAB308',
+                        goldGlow: '#FACC15',
+                        maroonDark: '#4C0519',
+                        crimsonRed: '#9F1239',
+                        deepRose: '#881337',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(159, 18, 57, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(202, 138, 4, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.9) 0px, transparent 100%);
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .royal-font {
+            font-family: 'Rozha One', serif;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:active {
+            transform: scale(0.97);
+        }
+
+        @media (hover: hover) {
+            .glass-card-hover:hover {
+                transform: translateY(-2px);
+                border-color: rgba(234, 179, 8, 0.4);
+                box-shadow: 0 10px 25px -5px rgba(234, 179, 8, 0.15);
+            }
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.2);
+        }
+
+        /* Custom Toast Notification */
+        #toast {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(20px);
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 antialiased">
+
+    <main class="w-full max-w-md mx-auto space-y-5 my-auto">
+
+        <!-- Top Action Bar (Share & Contact) -->
+        <div class="flex justify-between items-center px-1">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 backdrop-blur-md">
+                <i class="fa-solid fa-award text-amber-400 mr-1.5"></i> Estd. Since 1969
+            </span>
+            <button onclick="copyPageUrl()" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-sm" title="Share Page">
+                <i class="fa-solid fa-share-nodes text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="glass-card rounded-3xl p-6 text-center relative overflow-hidden shadow-2xl border-amber-500/20">
+            <!-- Background Decorative Accent -->
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-rose-600/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-amber-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+            <!-- Shop Logo / Avatar -->
+            <div class="relative w-28 h-28 mx-auto mb-4">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500 via-rose-600 to-amber-300 animate-spin-slow opacity-80 blur-xs"></div>
+                <div class="relative w-full h-full rounded-full bg-slate-900 p-1 border-2 border-amber-400/80 shadow-lg flex items-center justify-center overflow-hidden">
+                    <!-- Peacock Feather SVG Logo Graphic -->
+                    <div class="text-center p-2">
+                        <i class="fa-solid fa-feather-pointed text-3xl text-amber-400 mb-0.5"></i>
+                        <span class="block text-[10px] font-bold text-rose-400 uppercase tracking-widest leading-none">SHREE</span>
+                        <span class="block text-[11px] font-extrabold text-amber-300 tracking-wider royal-font leading-none">ALANKAR</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <h1 class="text-2xl font-bold tracking-tight text-white royal-font flex items-center justify-center gap-1.5">
+                श्री Alankar Dresses <span class="text-xs font-sans font-medium px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800/50">& Studio</span>
+            </h1>
+            <p class="text-xs text-amber-300/90 font-medium mt-1">
+                All Types of Fancy Dresses for Cultural Fests Available on Rent
+            </p>
+
+            <!-- Location Badge -->
+            <a href="https://maps.app.goo.gl/WEnWz1hWL1SfNmwE8" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center text-xs text-slate-300 hover:text-amber-300 mt-3 px-3 py-1.5 rounded-xl bg-slate-800/60 border border-slate-700/60 transition-colors">
+                <i class="fa-solid fa-location-dot text-rose-500 mr-1.5"></i>
+                <span class="truncate max-w-[280px]">Inside Jalori Gate, Jodhpur</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1.5 opacity-60"></i>
+            </a>
+        </div>
+
+        <!-- Links Section -->
+        <div class="space-y-3">
+
+            <!-- 1. Google Review / Rate Us (Prominent Call to Action) -->
+            <a href="https://maps.app.goo.gl/WEnWz1hWL1SfNmwE8" target="_blank" rel="noopener noreferrer" 
+               class="glass-card glass-card-hover flex items-center justify-between p-4 rounded-2xl border-2 border-amber-500/50 bg-gradient-to-r from-amber-950/40 via-slate-900/80 to-slate-900/80 shadow-lg group">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 text-slate-950 flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white flex items-center gap-1.5">
+                            Rate Us on Google
+                            <span class="text-[10px] bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded font-semibold border border-amber-400/30">5.0 ⭐</span>
+                        </div>
+                        <div class="text-xs text-amber-200/80">Google par apna Review dein!</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 2. WhatsApp Direct Chat -->
+            <a href="https://wa.me/919414720970?text=Hello%20Shree%20Alankar%20Dresses!%20Mujhe%20rent%20/%20costume%20details%20chahiye:%0A1.%20Rajasthani%20Traditional%0A2.%20Kids%20Fancy%20Dress%0A3.%20Garba%20/%20Dance%20Wear%0A4.%20Other%20Inquiry%0AKripya%20catalog%20share%20karein." target="_blank" rel="noopener noreferrer" 
+               class="glass-card glass-card-hover flex items-center justify-between p-4 rounded-2xl bg-emerald-950/30 border-emerald-500/30 group">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-2xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white">WhatsApp Inquiry</div>
+                        <div class="text-xs text-emerald-300/80">Direct Chat & Photo Catalog</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 3. Official Website -->
+            <a href="http://www.shreealankardressesandstudio.com" target="_blank" rel="noopener noreferrer" 
+               class="glass-card glass-card-hover flex items-center justify-between p-4 rounded-2xl group">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white">Visit Website</div>
+                        <div class="text-xs text-slate-400">shreealankardressesandstudio.com</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 4. Instagram Collection -->
+            <a href="https://www.instagram.com/shree.alankar.dressesandstudio/" target="_blank" rel="noopener noreferrer" 
+               class="glass-card glass-card-hover flex items-center justify-between p-4 rounded-2xl group">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-fuchsia-600 via-rose-500 to-amber-400 text-white flex items-center justify-center font-bold text-2xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white">Instagram Page</div>
+                        <div class="text-xs text-slate-400">@shree.alankar.dressesandstudio</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-rose-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 5. Call Directly -->
+            <a href="tel:+919414720970" 
+               class="glass-card glass-card-hover flex items-center justify-between p-4 rounded-2xl group">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 text-amber-400 flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white">Call Now</div>
+                        <div class="text-xs text-slate-400">+91 94147 20970</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 6. Shop Directions -->
+            <a href="https://maps.app.goo.gl/WEnWz1hWL1SfNmwE8" target="_blank" rel="noopener noreferrer" 
+               class="glass-card glass-card-hover flex items-center justify-between p-4 rounded-2xl group">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-rose-950/60 border border-rose-800/40 text-rose-400 flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white">Get Directions</div>
+                        <div class="text-xs text-slate-400">Google Maps Location</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-rose-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 7. Save Contact File -->
+            <a href="javascript:void(0);" onclick="downloadVCard()" 
+               class="w-full glass-card glass-card-hover flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-amber-500/30 text-amber-300 font-semibold text-xs tracking-wider uppercase shadow-md mt-2">
+                <i class="fa-solid fa-address-card text-base"></i>
+                <span>Save Contact to Phone</span>
+            </a>
+
+        </div>
+
+        <!-- Rental Categories Highlights -->
+        <div class="pt-4">
+            <div class="flex items-center justify-between mb-3 px-1">
+                <h2 class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center gap-1.5">
+                    <i class="fa-solid fa-vest text-rose-500"></i> Rental Collections
+                </h2>
+                <span class="text-[10px] text-slate-400">Available on Rent</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                
+                <!-- Category 1 -->
+                <div class="glass-card p-3 rounded-xl text-center border-slate-800 hover:border-amber-500/40 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-rose-950/80 text-rose-400 flex items-center justify-center mx-auto mb-2 text-sm border border-rose-800/50">
+                        <i class="fa-solid fa-flag"></i>
+                    </div>
+                    <h3 class="text-xs font-semibold text-slate-200">Patriotic & School</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Freedom Fighters, Costumes</p>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="glass-card p-3 rounded-xl text-center border-slate-800 hover:border-amber-500/40 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-amber-950/80 text-amber-400 flex items-center justify-center mx-auto mb-2 text-sm border border-amber-800/50">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <h3 class="text-xs font-semibold text-slate-200">Classical & Folk</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Dance & Fest Costumes</p>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="glass-card p-3 rounded-xl text-center border-slate-800 hover:border-amber-500/40 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-purple-950/80 text-purple-400 flex items-center justify-center mx-auto mb-2 text-sm border border-purple-800/50">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <h3 class="text-xs font-semibold text-slate-200">Kantara & Myth</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Drama & Character Wear</p>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="glass-card p-3 rounded-xl text-center border-slate-800 hover:border-amber-500/40 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-yellow-950/80 text-yellow-400 flex items-center justify-center mx-auto mb-2 text-sm border border-yellow-800/50">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="text-xs font-semibold text-slate-200">Gangaur Poshak</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Traditional Marwadi Outfits</p>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="glass-card p-3 rounded-xl text-center border-slate-800 hover:border-amber-500/40 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-blue-950/80 text-blue-400 flex items-center justify-center mx-auto mb-2 text-sm border border-blue-800/50">
+                        <i class="fa-solid fa-om"></i>
+                    </div>
+                    <h3 class="text-xs font-semibold text-slate-200">Krishna & Festive</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Janmashtami Outfits</p>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="glass-card p-3 rounded-xl text-center border-slate-800 hover:border-amber-500/40 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-red-950/80 text-red-400 flex items-center justify-center mx-auto mb-2 text-sm border border-red-800/50">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <h3 class="text-xs font-semibold text-slate-200">Santa & Christmas</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Party & Event Wear</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Address & Credits -->
+        <footer class="pt-6 pb-2 text-center text-xs text-slate-400 space-y-1.5 border-t border-slate-800/80">
+            <p class="font-semibold text-slate-200">श्री Alankar Dresses and Studio</p>
+            <p class="text-[11px] text-slate-400 max-w-xs mx-auto">
+                Inside Jalori Gate, Backside of Bhati softy, Razdan Mansion road, Jodhpur 342001
+            </p>
+            <p class="text-[10px] text-amber-500/70 pt-1 font-medium">Serving Jodhpur with Pride Since 1969</p>
+        </footer>
+
+    </main>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 border border-amber-200">
+        <i class="fa-solid fa-circle-check text-sm"></i>
+        <span id="toast-msg">Link Copied!</span>
+    </div>
+
+    <script>
+        // Copy Page URL Function
+        function copyPageUrl() {
+            const tempInput = document.createElement("input");
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            
+            showToast("Link copied to clipboard!");
+        }
+
+        // Show Toast Function
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const toastMsg = document.getElementById("toast-msg");
+            toastMsg.innerText = message;
+            toast.classList.add("show");
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+        // Download vCard Function
+        function downloadVCard() {
+            const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Shree Alankar Dresses and Studio
+ORG:Shree Alankar Dresses and Studio
+TEL;TYPE=CELL,VOICE:+919414720970
+ADR;TYPE=WORK,PREF:;;Inside Jalori Gate, Backside of Bhati softy, Razdan Mansion road;Jodhpur;Rajasthan;342001;India
+URL:http://www.shreealankardressesandstudio.com
+NOTE:All types of Fancy dresses for Cultural fests available on Rent. Since 1969.
+END:VCARD`;
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.setAttribute('download', 'Shree_Alankar_Dresses_Jodhpur.vcf');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast("Contact card downloaded!");
+        }
+    </script>
+</body>
+</html>
